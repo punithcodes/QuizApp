@@ -7,4 +7,4 @@ option is wrong, correct answer is displayed at the same time. User’s name, ma
 Tools and Technologies used :
 - Python, Django, Javascript, Html
 - CSS, Bootstrap, SQLite
-- Paypal Payment Gateway, Pycharm IDE
+- Pycharm IDE
