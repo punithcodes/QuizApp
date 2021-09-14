@@ -47,6 +47,10 @@ def user_login(request):
 
 
 def dashboard(request):
+    global question_list, score, question_number, start_time, end_time, username
+    score = end_time = start_time = username = 0
+    question_list = []
+    question_number = 1
     return render(request, 'dashboard.html')
 
 
