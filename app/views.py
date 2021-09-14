@@ -11,8 +11,7 @@ question_number = 1
 start_time = 0
 end_time = 0
 username = 0
-date = dt.datetime.today()
-today = date.date()
+today = dt.date.today()
 
 
 def home(request):
@@ -93,15 +92,15 @@ def result(request):
     total_time = str(time).split(':')
     minutes = int(total_time[1])
     seconds = format(float(total_time[2]), '.0f')
-    stu_result = Result(student=username, subject=question_list[0].subject, marks=score, date=today,
-                        time=end_time.time())
+    stu_result = Result(student=username, subject=question_list[0].subject, marks=score, date=str(today),
+                        time=str(end_time.time())[:8])
     stu_result.save()
     return render(request, 'result.html', {'total': score, 'minutes': minutes, 'seconds': seconds})
 
 
 def user_logout(request):
-    global question_list, score, question_number, start_time, end_time, date, today
-    score = end_time = start_time = date = today = 0
+    global question_list, score, question_number, start_time, end_time, username
+    score = end_time = start_time = username = 0
     question_list = []
     question_number = 1
     logout(request)

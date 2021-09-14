@@ -21,5 +21,5 @@ class Result(models.Model):
     student = models.CharField(max_length=100)
     subject = models.CharField(max_length=20)
     marks = models.IntegerField()
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.CharField(max_length=10)
+    time = models.CharField(max_length=50)
