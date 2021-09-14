@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+</head>
+<style>
+    body {
+        background-color:rgb(50,50,50);
+        color:antiquewhite;
+        }
+</style>
+<body>
+<div class="container">
+    <div class="row">
+        <center>
+        <div class="col-sm-10 my-5">
+        <p class="lead">You have finished test !</p><br>
+        <h1 class="display-6"><b>Your score : {{total}} marks</b></h1><br><br>
+            {% if total > 4 %}
+                <h1 class="lead"><b>You have successfully passed the test :)</b></h1><br><br>
+            {% else %}
+            <h1 class="lead">Sorry ! You have failed. Read well</h1><br><br>
+            {% endif %}
+            <p class="lead"><b>Time taken for quiz : {{minutes}} minutes {{seconds}} seconds</b></p>
+        </div>
+        <form action="logout">
+            <button class="btn btn-primary">Logout</button>
+        </form>
+        </center>
+    </div>
+</div>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+</body>
+</html>
