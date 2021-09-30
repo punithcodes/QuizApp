@@ -13,11 +13,12 @@ end_time = 0
 username = 0
 today = dt.date.today()
 
-
+# This function is responsible to show homepage.
 def home(request):
     return render(request, 'home.html')
 
 
+# This function is responsible for user signup functionality.
 def user_signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -29,6 +30,7 @@ def user_signup(request):
     return render(request, 'signup.html', {'form': form})
 
 
+# This function is responsible for user login.
 def user_login(request):
     global username
     if request.method == 'POST':
@@ -46,6 +48,7 @@ def user_login(request):
     return render(request, 'login.html', {'form': form})
 
 
+# This function is responsible to get us to dashboard.
 def dashboard(request):
     global question_list, score, question_number, start_time, end_time, username
     score = end_time = start_time = username = 0
@@ -53,7 +56,7 @@ def dashboard(request):
     question_number = 1
     return render(request, 'dashboard.html')
 
-
+# This function gets the first question of the quiz based on selected subject and responsible for displaying it.
 def get_question(request, sub):
     global question_list, start_time
     if request.method == 'POST':
@@ -64,6 +67,7 @@ def get_question(request, sub):
     return render(request, 'questions.html', {'questions': question_list[0], 'qn': question_number})
 
 
+# This function is responsible for checking the answer submitted by the user.
 def check_answer(request):
     global end_time, score, question_list
     finish = False
@@ -81,7 +85,7 @@ def check_answer(request):
         return render(request, 'questions.html', {'answer': answer, 'questions': q, 'finish': finish,
                                                   'qn': question_number, 'correct_answer': q.answer})
 
-
+# This function is responsible for giving next question for the user after submitting the answer.
 def next_question(request):
     global question_number, question_list
     if request.method == 'GET':
@@ -91,6 +95,7 @@ def next_question(request):
     return render(request, 'questions.html', {'questions': question_list[0], 'qn': question_number})
 
 
+# This function is responsible for displaying the result at the end of the quiz and store that result in the database
 def result(request):
     time = end_time - start_time
     total_time = str(time).split(':')
@@ -102,6 +107,7 @@ def result(request):
     return render(request, 'result.html', {'total': score, 'minutes': minutes, 'seconds': seconds})
 
 
+# This function is responsible for user logout.
 def user_logout(request):
     global question_list, score, question_number, start_time, end_time, username
     score = end_time = start_time = username = 0
