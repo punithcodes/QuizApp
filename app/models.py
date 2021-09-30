@@ -6,7 +6,7 @@ CATEGORY_CHOICES = (
     ('English', 'English'),
 )
 
-
+# Here I have created class Quiz model which is responsible to store questions, options and answer in the database.
 class Quiz(models.Model):
     subject = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
     question = models.CharField(max_length=200)
@@ -17,6 +17,7 @@ class Quiz(models.Model):
     answer = models.CharField(max_length=1)
 
 
+# This class is responsible to store the related information of the completed quiz in the database.
 class Result(models.Model):
     student = models.CharField(max_length=100)
     subject = models.CharField(max_length=20)
