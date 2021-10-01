@@ -5,7 +5,6 @@ and time are calculated and displayed at the end of the quiz. User get next ques
 option is wrong, correct answer is displayed at the same time. User’s name, marks, date and time are stored in database.
 
 Tools and Technologies used :
-
 - Python, Django, Javascript, Html
 - CSS, Bootstrap, SQLite
 - Pycharm IDE
